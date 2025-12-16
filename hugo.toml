@@ -1,129 +1,70 @@
 baseURL = "https://ethan-putnam.com/"
 languageCode = "en-us"
 title = "Ethan Putnam"
-theme = "PaperMod"
-
-enableRobotsTXT = true
-buildDrafts = false
-buildFuture = false
-buildExpired = false
-
-[minify]
-disableXML = true
-minifyOutput = true
+theme = "minimal"
 
 [params]
-env = "production"
-title = "Ethan Putnam"
-description = "Personal website and blog"
-keywords = ["Blog", "Portfolio", "Projects"]
 author = "Ethan Putnam"
-DateFormat = "January 2, 2006"
-defaultTheme = "auto"
-disableThemeToggle = false
-ShowReadingTime = true
-ShowShareButtons = true
-ShowPostNavLinks = true
-ShowBreadCrumbs = true
-ShowCodeCopyButtons = true
-ShowWordCount = true
-ShowRssButtonInSectionTermList = true
-UseHugoToc = true
-disableSpecial1stPost = false
-disableScrollToTop = false
-comments = false
-hidemeta = false
-hideSummary = false
-showtoc = true
-tocopen = false
+description = "Personal website of Ethan Putnam"
+tagline = "PhD Student in Cellular Molecular and Biomedical Sciences"
+affiliation = "University of Vermont"
+email = "esputnam@uvm.edu"
+profileImage = "/images/webphoto.jpeg"
 
-  [params.assets]
-  favicon = "/favicon.ico"
-  disableHLJS = true
+bio = """
+I am a <strong>2nd year PhD student</strong> in the CMB program at the University of Vermont advised by <a href="https://umicrobiomelab.org/" target="_blank">Dani Brasino</a>. My research focuses on developing an optimized gut organ-on-chip model system to investigate host-microbe interactions in cancer.
 
-  [params.label]
-  text = "Ethan Putnam"
+Previously, I worked for the <a href="https://cancercenter.gwu.edu/profile/javad-nazarian" target="_blank">Nazarian Lab</a> at Children's National on model development for transformed NF1 gliomas and was a member of the <a href="https://www.uvm.edu/cas/psychology/profile/mark-e-bouton" target="_blank">Bouton Lab</a> at UVM during my undergrad.
+"""
 
-  [params.profileMode]
-  enabled = true
-  title = "Ethan Putnam"
-  subtitle = "Welcome to my personal website"
-  imageUrl = ""
-  imageWidth = 120
-  imageHeight = 120
-  imageTitle = ""
+research = [
+    "Research Interest 1",
+    "Research Interest 2",
+    "Research Interest 3",
+    "Research Interest 4"
+]
 
-    [[params.profileMode.buttons]]
-    name = "About"
-    url = "about/"
+address = """
+Cellular, Molecular and Biomedical Sciences
+University of Vermont
+Burlington, VT 05405
+"""
 
-    [[params.profileMode.buttons]]
-    name = "Projects"
-    url = "projects/"
+[[params.leadership]]
+organization = "University of Vermont Outing Club"
+role = "Outing Club Leader"
+date = "Feb. 2018-May 2021"
+description = "Completed a competitive leadership development course and led wilderness excursions for UVM students in Vermont, New Hampshire, and New York."
 
-    [[params.profileMode.buttons]]
-    name = "Blog"
-    url = "posts/"
 
-  [params.socialIcons]
-  # Uncomment and fill in your social links
-  # [[params.socialIcons]]
-  # name = "github"
-  # url = "https://github.com/nucloid1"
+[[params.social]]
+name = "GitHub"
+url = "https://github.com/nucloid1"
 
-  # [[params.socialIcons]]
-  # name = "linkedin"
-  # url = "https://linkedin.com/in/yourprofile"
+[[params.social]]
+name = "Google Scholar"
+url = "https://scholar.google.com/citations?user=nr45zt8AAAAJ&hl=en&oi=ao"
 
-  # [[params.socialIcons]]
-  # name = "email"
-  # url = "mailto:your@email.com"
-
-  [params.cover]
-  hidden = true
-  hiddenInList = true
-  hiddenInSingle = true
-
-  [params.fuseOpts]
-  isCaseSensitive = false
-  shouldSort = true
-  location = 0
-  distance = 1000
-  threshold = 0.4
-  minMatchCharLength = 0
-  keys = ["title", "permalink", "summary", "content"]
+[[params.social]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/ethan-putnam-67b217176/"
 
 [menu]
-  [[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
-  weight = 10
+[[menu.main]]
+name = "Blog"
+url = "https://substack.com/@ethanputnam"
+weight = 1
 
-  [[menu.main]]
-  identifier = "projects"
-  name = "Projects"
-  url = "/projects/"
-  weight = 20
+[[menu.main]]
+name = "Projects"
+url = "/projects/"
+weight = 2
 
-  [[menu.main]]
-  identifier = "posts"
-  name = "Blog"
-  url = "/posts/"
-  weight = 30
-
-  [[menu.main]]
-  identifier = "search"
-  name = "Search"
-  url = "/search/"
-  weight = 40
-
-[outputs]
-home = ["HTML", "RSS", "JSON"]
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 3
 
 [markup]
-  [markup.highlight]
-  codeFences = true
-  guessSyntax = true
-  lineNos = true
-  style = "monokai"
+[markup.goldmark.renderer]
+unsafe = true

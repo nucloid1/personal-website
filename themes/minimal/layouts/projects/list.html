@@ -1,0 +1,50 @@
+{{ define "main" }}
+<section class="list-page">
+    <h1>{{ .Title }}</h1>
+
+    <h2>Protein Design</h2>
+    <p>I like to make proteins and recently had some of my designs selected in the <a href="https://proteinbase.com/esputnam" target="_blank">Adptybio Nipah Virus binder design contest</a>.</p>
+
+    <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--color-border);">
+
+    <h2>Woodworking</h2>
+    <p>I enjoy woodworking in my free time. I built a cedar strip canoe in 2023:</p>
+
+    <div class="photo-gallery">
+        <img src="/images/woodworking/IMG_4901.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_4990.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5014.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5042.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5044.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5055.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5069.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5077.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5089.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5125.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5134.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5647.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5648.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5865.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_5901.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_6015.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_6034.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+        <img src="/images/woodworking/IMG_6242.jpeg" alt="Canoe build" onclick="openLightbox(this.src)">
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+</section>
+{{ end }}

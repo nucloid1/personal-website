@@ -1,0 +1,153 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="hero-content">
+        {{ with .Site.Params.profileImage }}
+        <img src="{{ . }}" alt="{{ $.Site.Params.author }}" class="profile-photo">
+        {{ end }}
+        <div class="hero-text">
+            <h1>{{ .Site.Params.author }}</h1>
+            <p class="tagline">{{ .Site.Params.tagline }}</p>
+            {{ with .Site.Params.affiliation }}
+            <p class="affiliation">{{ . }}</p>
+            {{ end }}
+            <p class="email">{{ .Site.Params.email }}</p>
+            <div class="social-links">
+                {{ range .Site.Params.social }}
+                <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ with .Site.Params.bio }}
+<section class="bio" id="about">
+    {{ . | markdownify }}
+</section>
+{{ end }}
+
+<section class="cv-section" id="publications">
+    <h2>Publications</h2>
+    {{ range .Site.Data.publications }}
+    <div class="publication">
+        <p class="pub-title">{{ .title }}</p>
+        <p class="pub-authors">{{ replace .authors "Putnam, E." "<strong>Putnam, E.</strong>" | safeHTML }}</p>
+        {{ if .status }}
+        <p class="pub-venue">{{ .status }}</p>
+        {{ else }}
+        <p class="pub-venue">
+            {{ .venue }}{{ with .volume }}, {{ . }}{{ end }}{{ with .pages }}, {{ . }}{{ end }} ({{ .year }})
+            {{ with .url }} · <a href="{{ . }}" target="_blank">DOI</a>{{ end }}
+        </p>
+        {{ end }}
+    </div>
+    {{ end }}
+</section>
+
+<section class="cv-section" id="education">
+    <h2>Education</h2>
+    {{ range .Site.Data.education }}
+    <div class="cv-entry">
+        <div class="cv-header">
+            <div class="cv-title">
+                <strong>{{ .institution }}</strong>
+                {{ with .advisor }}<br><span class="cv-detail">Advisor: <a href="https://www.uvm.edu/larnermed/bios/profile/dani-brasino" target="_blank">{{ . }}</a></span>{{ end }}
+            </div>
+            <div class="cv-date">{{ .date }}</div>
+        </div>
+        <div class="cv-subtitle">
+            {{ .degree }}{{ with .notes }}, {{ . }}{{ end }}
+        </div>
+    </div>
+    {{ end }}
+</section>
+
+<section class="cv-section" id="research">
+    <h2>Experience</h2>
+    {{ range .Site.Data.experience }}
+    <div class="cv-entry">
+        <div class="cv-header">
+            <div class="cv-title"><strong>{{ replace .institution "Nazarian Lab" "<a href=\"https://cancercenter.gwu.edu/profile/javad-nazarian\" target=\"_blank\">Nazarian Lab</a>" | safeHTML }}</strong></div>
+            <div class="cv-date">{{ .date }}</div>
+        </div>
+        <div class="cv-subtitle">{{ .title }}</div>
+        <p class="cv-description">{{ .description }}</p>
+    </div>
+    {{ end }}
+</section>
+
+<section class="cv-section" id="presentations">
+    <h2>Conference Presentations</h2>
+    {{ range .Site.Data.presentations }}
+    <div class="cv-entry">
+        <div class="cv-presentation">
+            <p class="pub-title">{{ .title }}</p>
+            <p class="pub-authors">{{ replace .authors "Putnam, E." "<strong>Putnam, E.</strong>" | safeHTML }}</p>
+            <p class="pub-venue">{{ .venue }}, {{ .location }} ({{ .date }})</p>
+        </div>
+    </div>
+    {{ end }}
+</section>
+
+<section class="cv-section" id="awards">
+    <h2>Awards & Fellowships</h2>
+    {{ range .Site.Data.awards }}
+    <div class="cv-entry-simple">
+        <div class="cv-header">
+            <div class="cv-title">{{ .award }}</div>
+            <div class="cv-date">{{ .year }}</div>
+        </div>
+    </div>
+    {{ end }}
+</section>
+
+<section class="cv-section" id="teaching">
+    <h2>Teaching</h2>
+    {{ range .Site.Data.teaching }}
+    <div class="cv-entry">
+        <div class="cv-header">
+            <div class="cv-title"><strong>{{ .institution }}</strong></div>
+            <div class="cv-date">{{ .date }}</div>
+        </div>
+        <div class="cv-subtitle">{{ .role }} - {{ .course }}</div>
+    </div>
+    {{ end }}
+</section>
+
+{{ with .Site.Params.skills }}
+<section class="cv-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        {{ range . }}
+        <div class="skill-category">
+            <strong>{{ .category }}:</strong> {{ .items }}
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+
+{{ with .Site.Params.leadership }}
+<section class="cv-section" id="leadership">
+    <h2>Leadership</h2>
+    {{ range . }}
+    <div class="cv-entry">
+        <div class="cv-header">
+            <div class="cv-title"><strong>{{ .organization }}</strong></div>
+            <div class="cv-date">{{ .date }}</div>
+        </div>
+        <div class="cv-subtitle">{{ .role }}</div>
+        <p class="cv-description">{{ .description }}</p>
+    </div>
+    {{ end }}
+</section>
+{{ end }}
+
+{{ with .Site.Params.funstuff }}
+<section class="cv-section" id="funstuff">
+    <h2>Fun Stuff</h2>
+    {{ . | markdownify }}
+</section>
+{{ end }}
+
+{{ end }}

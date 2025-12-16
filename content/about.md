@@ -1,28 +1,9 @@
 ---
-title: "About"
-layout: "single"
-url: "/about/"
-summary: "About me"
-ShowToc: false
-ShowBreadCrumbs: false
+title: ""
 ---
 
-## About Me
+Hi! Thanks for stopping by.
 
-Hello! I'm Ethan Putnam. Welcome to my personal website.
+I've long had an interest in discovering how things work: I was one of those kids who loved to take things apart, did FIRST robotics in high school, decided I wanted to understand the brain in college, and now I work on making better *in vitro* models of physiological systems to help understand human health and disease. 
 
-### Background
-
-*Add your background here - education, career path, etc.*
-
-### Interests
-
-*Share your professional and personal interests here.*
-
-### Contact
-
-Feel free to reach out:
-
-- Email: your@email.com
-- GitHub: [github.com/nucloid1](https://github.com/nucloid1)
-- LinkedIn: [Your LinkedIn Profile]
+Along the way I've been a lot of different things: general contractors assistant, farmhand, student journalist, adventure camp trip leader, trail crew, and photographer. I hope to add a few more before I'm too old. When I'm not in the lab, you can find me rock climbing, running, cycling, sailing, skiing, playing tennis, making music, woodworking, hiking, and making and eating pastries with my family in Vermont.

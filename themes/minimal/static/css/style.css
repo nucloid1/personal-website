@@ -1,0 +1,472 @@
+/* Warbler Fonts - Different Optical Sizes */
+@font-face {
+    font-family: 'Warbler Banner';
+    src: url('/fonts/WarblerBanner-Regular-Edu.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Warbler Banner';
+    src: url('/fonts/WarblerBanner-Bold-Edu.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Warbler Display';
+    src: url('/fonts/WarblerDisplay-Regular-Edu.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Warbler Deck';
+    src: url('/fonts/WarblerDeck-Regular-Edu.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Warbler Text';
+    src: url('/fonts/WarblerText-Regular-Edu.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Warbler Variable Font (fallback) */
+@font-face {
+    font-family: 'Warbler';
+    src: url('/fonts/WarblerVariable[opsz,wght]-Edu.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Warbler';
+    src: url('/fonts/WarblerVariable-Italic[opsz,wght]-Edu.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-text: #1a1a1a;
+    --color-text-light: #555;
+    --color-bg: #fefefe;
+    --color-border: #e0e0e0;
+    --color-link: #1a1a1a;
+    --color-link-hover: #666;
+    --max-width: 950px;
+    --font-size-base: 17px;
+    --line-height: 1.6;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Warbler Text', 'Warbler', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    line-height: var(--line-height);
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-family: 'Warbler Banner', 'Warbler', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-family: 'Warbler Display', 'Warbler', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+/* Layout */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+/* Header */
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.nav-title {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--color-text-light);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-text);
+}
+
+/* Hero / Profile Section */
+.hero {
+    padding: 3rem 0;
+}
+
+.hero-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.profile-photo {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.hero-text h1 {
+    margin-bottom: 0.25rem;
+}
+
+.tagline {
+    font-family: 'Warbler Text', 'Warbler', Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.affiliation {
+    font-family: 'Warbler Text', 'Warbler', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    font-size: 0.9rem;
+}
+
+/* Sections */
+section {
+    padding: 0.5rem 0;
+}
+
+.bio {
+    font-family: 'Warbler Text', 'Warbler', Georgia, serif;
+    font-size: 1.05rem;
+}
+
+.research ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 2rem;
+}
+
+.research li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* CV Sections */
+.cv-section {
+    margin-bottom: 1rem;
+}
+
+.cv-entry {
+    margin-bottom: 1.5rem;
+}
+
+.cv-entry-simple {
+    margin-bottom: 0.75rem;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.cv-title {
+    flex: 1;
+}
+
+.cv-date {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-align: right;
+}
+
+.cv-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.cv-detail {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+}
+
+.cv-description {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-top: 0.25rem;
+}
+
+.email {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+/* Publications */
+.publication {
+    margin-bottom: 2rem;
+}
+
+.pub-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.pub-authors {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.15rem;
+}
+
+.pub-venue {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: 0.25rem;
+}
+
+.pub-links {
+    font-size: 0.85rem;
+}
+
+.pub-links a {
+    margin-right: 1rem;
+}
+
+/* Contact */
+.contact .address {
+    white-space: pre-line;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.skill-category {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.skill-category strong {
+    font-weight: 500;
+}
+
+/* Footer */
+.site-footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* Single Page */
+.page h1 {
+    margin-bottom: 2rem;
+}
+
+/* List Page */
+.post-list {
+    list-style: none;
+}
+
+.post-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.post-list time {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.photo-gallery img:active {
+    transform: scale(1.02);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .research ul {
+        columns: 1;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+}
