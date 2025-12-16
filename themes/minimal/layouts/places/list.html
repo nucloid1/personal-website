@@ -1,0 +1,293 @@
+{{ define "main" }}
+<section class="places-page">
+    <h1>{{ .Title }}</h1>
+    <p class="places-intro">Some of my favorite spots.</p>
+
+    <!-- Category Filter -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-category="all">All</button>
+        {{ $categories := slice }}
+        {{ range $.Site.Data.places }}
+            {{ if not (in $categories .category) }}
+                {{ $categories = $categories | append .category }}
+            {{ end }}
+        {{ end }}
+        {{ range $categories }}
+            <button class="filter-btn" data-category="{{ . | lower }}">{{ . }}</button>
+        {{ end }}
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Places Grid -->
+    <div class="places-grid">
+        {{ range $.Site.Data.places }}
+        <div class="place-card" data-category="{{ .category | lower }}" data-lat="{{ .lat }}" data-lng="{{ .lng }}">
+            {{ if .image }}
+            <div class="place-image">
+                <img src="{{ .image }}" alt="{{ .name }}" loading="lazy">
+            </div>
+            {{ end }}
+            <div class="place-content">
+                <div class="place-header">
+                    <h3 class="place-name">
+                        {{ if .url }}<a href="{{ .url }}" target="_blank">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+                    </h3>
+                    {{ if .rating }}
+                    <div class="place-rating">
+                        {{ range seq .rating }}★{{ end }}{{ range seq (sub 5 .rating) }}☆{{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="place-meta">
+                    <span class="place-category">{{ .category }}</span>
+                    <span class="place-location">{{ .location }}</span>
+                </div>
+                {{ if .notes }}
+                <p class="place-notes">{{ .notes }}</p>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize map
+    const places = [
+        {{ range $.Site.Data.places }}
+        {
+            name: {{ .name | jsonify }},
+            category: {{ .category | lower | jsonify }},
+            location: {{ .location | jsonify }},
+            lat: {{ .lat }},
+            lng: {{ .lng }},
+            rating: {{ .rating | default 0 }},
+            notes: {{ .notes | default "" | jsonify }}
+        },
+        {{ end }}
+    ];
+
+    // Find center of all places
+    let avgLat = 0, avgLng = 0;
+    places.forEach(p => { avgLat += p.lat; avgLng += p.lng; });
+    avgLat /= places.length || 1;
+    avgLng /= places.length || 1;
+
+    const map = L.map('map').setView([avgLat, avgLng], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Add markers
+    const markers = [];
+    places.forEach(place => {
+        const marker = L.marker([place.lat, place.lng])
+            .addTo(map)
+            .bindPopup(`<strong>${place.name}</strong><br>${place.location}`);
+        marker.category = place.category;
+        markers.push(marker);
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const placeCards = document.querySelectorAll('.place-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter cards
+            placeCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Filter markers
+            markers.forEach(marker => {
+                if (category === 'all' || marker.category === category) {
+                    marker.addTo(map);
+                } else {
+                    marker.remove();
+                }
+            });
+        });
+    });
+
+    // Click card to pan to location
+    placeCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.target.tagName !== 'A') {
+                const lat = parseFloat(this.dataset.lat);
+                const lng = parseFloat(this.dataset.lng);
+                map.setView([lat, lng], 15);
+            }
+        });
+    });
+});
+</script>
+
+<style>
+.places-page {
+    max-width: var(--max-width);
+}
+
+.places-intro {
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    font-family: 'Warbler Text', Georgia, serif;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text-light);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+.filter-btn.active {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
+}
+
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.place-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    background: var(--color-bg);
+}
+
+.place-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.place-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.place-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.place-content {
+    padding: 1rem;
+}
+
+.place-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.place-name {
+    font-family: 'Warbler Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.place-name a {
+    text-decoration: none;
+}
+
+.place-name a:hover {
+    text-decoration: underline;
+}
+
+.place-rating {
+    color: #f5a623;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.place-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.place-category {
+    background: var(--color-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.place-notes {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    #map {
+        height: 300px;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{{ end }}

@@ -1,0 +1,13 @@
+# Add your favorite places here
+# Each place needs: name, category, location, lat, lng
+# Optional: rating (1-5), notes, image, url
+
+- name: "Example Cafe"
+  category: "Cafe"
+  location: "Burlington, VT"
+  lat: 44.4759
+  lng: -73.2121
+  rating: 4
+  notes: "Great coffee and pastries"
+  # image: "/images/places/example.jpg"
+  # url: "https://example.com"
