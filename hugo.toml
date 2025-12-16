@@ -1,0 +1,129 @@
+baseURL = "https://nucloid1.github.io/"
+languageCode = "en-us"
+title = "Ethan Putnam"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+disableXML = true
+minifyOutput = true
+
+[params]
+env = "production"
+title = "Ethan Putnam"
+description = "Personal website and blog"
+keywords = ["Blog", "Portfolio", "Projects"]
+author = "Ethan Putnam"
+DateFormat = "January 2, 2006"
+defaultTheme = "auto"
+disableThemeToggle = false
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = true
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = true
+tocopen = false
+
+  [params.assets]
+  favicon = "/favicon.ico"
+  disableHLJS = true
+
+  [params.label]
+  text = "Ethan Putnam"
+
+  [params.profileMode]
+  enabled = true
+  title = "Ethan Putnam"
+  subtitle = "Welcome to my personal website"
+  imageUrl = ""
+  imageWidth = 120
+  imageHeight = 120
+  imageTitle = ""
+
+    [[params.profileMode.buttons]]
+    name = "About"
+    url = "about/"
+
+    [[params.profileMode.buttons]]
+    name = "Projects"
+    url = "projects/"
+
+    [[params.profileMode.buttons]]
+    name = "Blog"
+    url = "posts/"
+
+  [params.socialIcons]
+  # Uncomment and fill in your social links
+  # [[params.socialIcons]]
+  # name = "github"
+  # url = "https://github.com/nucloid1"
+
+  # [[params.socialIcons]]
+  # name = "linkedin"
+  # url = "https://linkedin.com/in/yourprofile"
+
+  # [[params.socialIcons]]
+  # name = "email"
+  # url = "mailto:your@email.com"
+
+  [params.cover]
+  hidden = true
+  hiddenInList = true
+  hiddenInSingle = true
+
+  [params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = ["title", "permalink", "summary", "content"]
+
+[menu]
+  [[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 10
+
+  [[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 20
+
+  [[menu.main]]
+  identifier = "posts"
+  name = "Blog"
+  url = "/posts/"
+  weight = 30
+
+  [[menu.main]]
+  identifier = "search"
+  name = "Search"
+  url = "/search/"
+  weight = 40
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  lineNos = true
+  style = "monokai"
