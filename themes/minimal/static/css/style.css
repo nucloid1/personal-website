@@ -1,57 +1,16 @@
-/* Warbler Fonts - Different Optical Sizes */
+/* EB Garamond Variable Font */
 @font-face {
-    font-family: 'Warbler Banner';
-    src: url('/fonts/WarblerBanner-Regular-Edu.otf') format('opentype');
-    font-weight: 400;
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 800;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Warbler Banner';
-    src: url('/fonts/WarblerBanner-Bold-Edu.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Warbler Display';
-    src: url('/fonts/WarblerDisplay-Regular-Edu.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Warbler Deck';
-    src: url('/fonts/WarblerDeck-Regular-Edu.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Warbler Text';
-    src: url('/fonts/WarblerText-Regular-Edu.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Warbler Variable Font (fallback) */
-@font-face {
-    font-family: 'Warbler';
-    src: url('/fonts/WarblerVariable[opsz,wght]-Edu.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Warbler';
-    src: url('/fonts/WarblerVariable-Italic[opsz,wght]-Edu.ttf') format('truetype');
-    font-weight: 100 900;
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 800;
     font-style: italic;
     font-display: swap;
 }
@@ -81,7 +40,7 @@ html {
 }
 
 body {
-    font-family: 'Warbler Text', 'Warbler', Georgia, 'Times New Roman', serif;
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
     font-weight: 400;
     line-height: var(--line-height);
     color: var(--color-text);
@@ -98,14 +57,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-family: 'Warbler Banner', 'Warbler', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
 h2 {
-    font-family: 'Warbler Display', 'Warbler', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.25rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -200,7 +159,7 @@ main {
 }
 
 .tagline {
-    font-family: 'Warbler Text', 'Warbler', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.1rem;
     color: var(--color-text-light);
     font-style: italic;
@@ -208,7 +167,7 @@ main {
 }
 
 .affiliation {
-    font-family: 'Warbler Text', 'Warbler', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 0.95rem;
     color: var(--color-text-light);
     margin-bottom: 1rem;
@@ -230,7 +189,7 @@ section {
 }
 
 .bio {
-    font-family: 'Warbler Text', 'Warbler', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.05rem;
 }
 

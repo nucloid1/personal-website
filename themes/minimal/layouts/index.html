@@ -67,7 +67,7 @@
     {{ range .Site.Data.experience }}
     <div class="cv-entry">
         <div class="cv-header">
-            <div class="cv-title"><strong>{{ replace .institution "Nazarian Lab" "<a href=\"https://cancercenter.gwu.edu/profile/javad-nazarian\" target=\"_blank\">Nazarian Lab</a>" | safeHTML }}</strong></div>
+            <div class="cv-title"><strong>{{ .institution }}</strong></div>
             <div class="cv-date">{{ .date }}</div>
         </div>
         <div class="cv-subtitle">{{ .title }}</div>
