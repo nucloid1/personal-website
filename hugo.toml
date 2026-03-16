@@ -14,7 +14,7 @@ profileImage = "/images/webphoto.jpeg"
 bio = """
 I am a <strong>2nd year PhD student</strong> in the CMB program at the University of Vermont advised by <a href="https://umicrobiomelab.org/" target="_blank">Dani Brasino</a>. My research focuses on developing an optimized gut organ-on-chip model system to investigate host-microbe interactions in cancer. I am also interested in applying machine learning approaches to protein design.
 
-Previously, I worked for the <a href="https://cancercenter.gwu.edu/profile/javad-nazarian" target="_blank">Nazarian Lab</a> at Children's National on model development for transformed NF1 gliomas and was a member of the <a href="https://www.uvm.edu/cas/psychology/profile/mark-e-bouton" target="_blank">Bouton Lab</a> at UVM during my undergrad.
+Previously, I was the lead clinical research coordinator for multiple clinical trials at the <a href="https://www.uvm.edu/larnermed/vermontlung" target="_blank">Vermont Lung Center</a>, worked for the <a href="https://cancercenter.gwu.edu/profile/javad-nazarian" target="_blank">Nazarian Lab</a> at Children's National on model development for transformed NF1 gliomas and was a member of the <a href="https://www.uvm.edu/cas/psychology/profile/mark-e-bouton" target="_blank">Bouton Lab</a> at UVM during my undergrad.
 """
 
 research = [
