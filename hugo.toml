@@ -10,6 +10,8 @@ tagline = "PhD Candidate in Cellular Molecular and Biomedical Sciences"
 affiliation = "University of Vermont"
 email = "esputnam@uvm.edu"
 profileImage = "/images/webphoto.jpeg"
+# GoatCounter site code (the "MYCODE" in MYCODE.goatcounter.com). Leave empty to disable analytics.
+goatcounter = "epersonalweb"
 
 bio = """
 I am a <strong>3rd year PhD candidate</strong> in the CMB program at the University of Vermont advised by <a href="https://umicrobiomelab.org/" target="_blank">Dani Brasino</a>. My research focuses on developing an optimized gut organ-on-chip model system to investigate host-microbe interactions in cancer. I am also interested in applying machine learning approaches to protein design.
